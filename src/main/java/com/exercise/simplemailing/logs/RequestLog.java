@@ -10,8 +10,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class RequestLog {
 
     public static void createNewLog(FileWriter fileWriter, String log) throws IOException {

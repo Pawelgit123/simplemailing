@@ -60,7 +60,7 @@ class UserWithMailServiceSearchTest {
         userWithMailRepository.save(createUserWithMailForTestTwo());
         userWithMailRepository.save(createUserWithMailForTestThree());
         Long id = save.getId();
-        MockHttpServletRequestBuilder request = get(requestMappingUrl+"{id}", id);
+        MockHttpServletRequestBuilder request = get(requestMappingUrl+"/{id}", id);
 
         //when
         MockHttpServletResponse response = mockMvc.perform(request).andReturn().getResponse();
@@ -80,7 +80,7 @@ class UserWithMailServiceSearchTest {
         userWithMailRepository.save(createUserWithMailForTestTwo());
         userWithMailRepository.save(createUserWithMailForTestThree());
         String email = save.getEmail();
-        MockHttpServletRequestBuilder request = get(requestMappingUrl+"{address}", email);
+        MockHttpServletRequestBuilder request = get(requestMappingUrl+"/{address}", email);
 
         //when
         MockHttpServletResponse response = mockMvc.perform(request).andReturn().getResponse();

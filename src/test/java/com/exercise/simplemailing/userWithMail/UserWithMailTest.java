@@ -3,6 +3,7 @@ package com.exercise.simplemailing.userWithMail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserWithMailTest {
@@ -19,4 +20,17 @@ class UserWithMailTest {
         assertTrue(userWithMail.getEmail().contains("@"));
 
     }
+    @Test
+    void getEmailIsNotBlank() {
+        assertFalse(userWithMail.getEmail().isBlank());
+
+    }
+
+    @Test
+    void getEmailIsNotEmpty() {
+        assertFalse(userWithMail.getEmail().isEmpty());
+
+    }
+
+
 }

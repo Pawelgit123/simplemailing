@@ -89,8 +89,4 @@ class UserWithMailServiceCreateTest {
         List<UserWithMail> list = userWithMailRepository.findAll();
         assertThat(list).isEmpty();
         }
-
-
-
-
 }

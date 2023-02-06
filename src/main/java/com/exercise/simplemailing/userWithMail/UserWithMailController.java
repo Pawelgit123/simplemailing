@@ -20,8 +20,7 @@ public class UserWithMailController {
     @ResponseStatus(HttpStatus.CREATED)
     public UserWithMailDTO createNewUserWithMail(@RequestBody UserWithMailDTO userWithMailDTO) throws IOException {
 
-        //TODO check this
-        RequestLog.createNewLog(RequestLog.createRequestFileWriter(),"new UserWithMail created, email address: " + userWithMailDTO.getEmail());
+//        RequestLog.createNewLog(RequestLog.createRequestFileWriter(),"new UserWithMail created, email address: " + userWithMailDTO.getEmail());
 
         return userWithMailServiceCreate.createNewUserWithMail(userWithMailDTO);
     }

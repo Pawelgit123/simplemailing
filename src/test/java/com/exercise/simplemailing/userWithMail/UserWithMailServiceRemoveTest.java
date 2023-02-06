@@ -38,14 +38,14 @@ class UserWithMailServiceRemoveTest {
 
     private UserWithMail createUserWithMailForTest() {
         return UserWithMail.builder()
-                .email("testdto@gmail.com")
+                .email("test@gmail.com")
                 .build();
     }
 
     @Test
     void removeUserWithMailByAddress() throws Exception {
         //given
-        UserWithMail userWithMail = createUserWithMailForTest();
+        UserWithMail userWithMail = userWithMailRepository.save(createUserWithMailForTest());
         String param = objectMapper.writeValueAsString(userWithMail.getEmail());
         MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/{address}", param)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -64,7 +64,7 @@ class UserWithMailServiceRemoveTest {
     @Test
     void removeUserWithMailById() throws Exception {
         //given
-        UserWithMail userWithMail = createUserWithMailForTest();
+        UserWithMail userWithMail = userWithMailRepository.save(createUserWithMailForTest());
         String param = objectMapper.writeValueAsString(userWithMail.getId());
         MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/{id}", param)
                 .contentType(MediaType.APPLICATION_JSON)

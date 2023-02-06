@@ -2,6 +2,7 @@ package com.exercise.simplemailing.email;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Message;
@@ -16,10 +17,9 @@ import javax.mail.internet.MimeMessage;
 @RequiredArgsConstructor
 public class MailServiceSendEmail {
 
-    private final MailConfiguration emailConfiguration;
-
     public void sentEmail(Email email){
-        Session session = emailConfiguration.createSession();
+        MailConfiguration mailConfiguration = new MailConfiguration();
+        Session session = mailConfiguration.createSession();
         try{
             MimeMessage message = new MimeMessage(session);
             message.setText(email.getContent());
