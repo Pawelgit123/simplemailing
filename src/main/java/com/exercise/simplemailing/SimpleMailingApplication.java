@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 
-import java.io.File;
 
 
 @RequiredArgsConstructor
@@ -30,9 +29,6 @@ public class SimpleMailingApplication implements CommandLineRunner {
             UserWithMail userWithMail = new UserWithMail();
             userWithMail.setEmail("testerpgtester@gmail.com");
             userWithMailRepository.save(userWithMail);
-
-            File file = new File("requestLog.txt");
-
 
     }
 }
