@@ -22,11 +22,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 class UserWithMailServiceSearchTest {
 
     @Autowired
-    private UserWithMailRepository userWithMailRepository;
+    UserWithMailRepository userWithMailRepository;
     @Autowired
-    private ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     private final String requestMappingUrl = "/mail";
 
@@ -60,15 +60,15 @@ class UserWithMailServiceSearchTest {
         userWithMailRepository.save(createUserWithMailForTestTwo());
         userWithMailRepository.save(createUserWithMailForTestThree());
         Long id = save.getId();
-        MockHttpServletRequestBuilder request = get(requestMappingUrl+"/{id}", id);
+        MockHttpServletRequestBuilder request = get(requestMappingUrl+"/id/{id}", id);
 
         //when
         MockHttpServletResponse response = mockMvc.perform(request).andReturn().getResponse();
 
         //then
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        UserWithMailDTO userWithMailDTO = objectMapper.readValue(response.getContentAsString(StandardCharsets.UTF_8), new TypeReference<>() {
-        });
+        UserWithMailDTO userWithMailDTO = objectMapper.readValue(response.getContentAsString(StandardCharsets.UTF_8), UserWithMailDTO.class); {
+        }
         assertThat(userWithMailDTO.getId()).isEqualTo(id);
 
     }
@@ -80,7 +80,7 @@ class UserWithMailServiceSearchTest {
         userWithMailRepository.save(createUserWithMailForTestTwo());
         userWithMailRepository.save(createUserWithMailForTestThree());
         String email = save.getEmail();
-        MockHttpServletRequestBuilder request = get(requestMappingUrl+"/{address}", email);
+        MockHttpServletRequestBuilder request = get(requestMappingUrl+"/address/{address}", email);
 
         //when
         MockHttpServletResponse response = mockMvc.perform(request).andReturn().getResponse();

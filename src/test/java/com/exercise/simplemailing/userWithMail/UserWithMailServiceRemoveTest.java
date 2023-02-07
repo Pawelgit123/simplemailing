@@ -23,11 +23,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 class UserWithMailServiceRemoveTest {
 
     @Autowired
-    private UserWithMailRepository userWithMailRepository;
+    UserWithMailRepository userWithMailRepository;
     @Autowired
-    private ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     private final String requestMappingUrl = "/mail";
 
@@ -47,7 +47,7 @@ class UserWithMailServiceRemoveTest {
         //given
         UserWithMail userWithMail = userWithMailRepository.save(createUserWithMailForTest());
         String param = objectMapper.writeValueAsString(userWithMail.getEmail());
-        MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/{address}", param)
+        MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/address/{address}", param)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON);
 
@@ -66,7 +66,7 @@ class UserWithMailServiceRemoveTest {
         //given
         UserWithMail userWithMail = userWithMailRepository.save(createUserWithMailForTest());
         String param = objectMapper.writeValueAsString(userWithMail.getId());
-        MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/{id}", param)
+        MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/id/{id}", param)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON);
 

@@ -23,11 +23,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 class UserWithMailServiceCreateTest {
 
     @Autowired
-    private UserWithMailRepository userWithMailRepository;
+    UserWithMailRepository userWithMailRepository;
     @Autowired
-    private ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     private final String requestMappingUrl = "/mail";
 

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UserWithMailMapperTest {
 
     @Mock
-    private UserWithMailRepository userWithMailRepository;
+    UserWithMailRepository userWithMailRepository;
 
 
     @BeforeEach

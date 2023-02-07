@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAut
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 
 
-
 @RequiredArgsConstructor
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class, UserDetailsServiceAutoConfiguration.class, SecurityFilterAutoConfiguration.class})
 public class SimpleMailingApplication implements CommandLineRunner {
@@ -25,10 +24,14 @@ public class SimpleMailingApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-            userWithMailRepository.deleteAll();
-            UserWithMail userWithMail = new UserWithMail();
-            userWithMail.setEmail("testerpgtester@gmail.com");
-            userWithMailRepository.save(userWithMail);
+        userWithMailRepository.deleteAll();
+        UserWithMail userWithMail = new UserWithMail();
+        userWithMail.setEmail("testerpgtester@gmail.com");
+        userWithMailRepository.save(userWithMail);
+
+        UserWithMail userWithMailTwo = new UserWithMail();
+        userWithMailTwo.setEmail("testerpgtester2@gmail.com");
+        userWithMailRepository.save(userWithMailTwo);
 
     }
 }
