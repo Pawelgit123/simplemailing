@@ -46,7 +46,7 @@ class UserWithMailServiceRemoveTest {
     void removeUserWithMailByAddress() throws Exception {
         //given
         UserWithMail userWithMail = userWithMailRepository.save(createUserWithMailForTest());
-        String param = objectMapper.writeValueAsString(userWithMail.getEmail());
+        String param = userWithMail.getEmail();
         MockHttpServletRequestBuilder delete = delete(requestMappingUrl + "/address/{address}", param)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON);

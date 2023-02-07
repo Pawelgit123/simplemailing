@@ -14,7 +14,8 @@ public class UserWithMailServiceRemove {
 
     public void removeUserWithMailByAddress(String address) {
         if (userWithMailRepository.findUserWithMailByEmail(address).isPresent()) {
-            userWithMailRepository.deleteById(userWithMailRepository.findUserWithMailByEmail(address).get().getId());
+            Long id = userWithMailRepository.findUserWithMailByEmail(address).get().getId();
+            userWithMailRepository.deleteById(id);
         } else {
             throw new NotFoundException("Not found user with email address: " + address);
         }
