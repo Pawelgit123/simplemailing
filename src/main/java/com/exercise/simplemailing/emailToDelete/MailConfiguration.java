@@ -1,9 +1,6 @@
-package com.exercise.simplemailing.email;
+package com.exercise.simplemailing.emailToDelete;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
 
 import javax.mail.Session;
 

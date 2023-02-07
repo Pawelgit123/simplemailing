@@ -1,8 +1,7 @@
-package com.exercise.simplemailing.email;
+package com.exercise.simplemailing.emailToDelete;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Message;

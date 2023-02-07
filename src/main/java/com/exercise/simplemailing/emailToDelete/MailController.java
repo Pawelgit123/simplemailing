@@ -1,20 +1,17 @@
-package com.exercise.simplemailing.email;
+package com.exercise.simplemailing.emailToDelete;
 
 import com.exercise.simplemailing.userWithMail.UserWithMailDTO;
 import com.exercise.simplemailing.userWithMail.UserWithMailDTOListed;
 import com.exercise.simplemailing.userWithMail.UserWithMailServiceSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/send")
+@RequestMapping("/sendaaa")
 public class MailController {
 
     private final UserWithMailServiceSearch userWithMailServiceSearch;
@@ -22,7 +19,7 @@ public class MailController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void sentEmailToAll(String title, String content){
+    public void sentEmailToAll(@RequestParam String title, @RequestParam String content){
 
         //Todo check this
 

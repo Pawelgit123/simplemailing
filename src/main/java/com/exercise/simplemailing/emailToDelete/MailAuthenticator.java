@@ -1,13 +1,12 @@
-package com.exercise.simplemailing.email;
+package com.exercise.simplemailing.emailToDelete;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class MailAuthenticator extends Authenticator {

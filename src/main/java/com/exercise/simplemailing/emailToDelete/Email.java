@@ -1,4 +1,4 @@
-package com.exercise.simplemailing.email;
+package com.exercise.simplemailing.emailToDelete;
 
 import lombok.Data;
 
