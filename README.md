@@ -2,6 +2,8 @@
 
 This application is a simple project developed by Java trainee/junior due to recruitment process. The goal of the project is to give example of use for the following activities: Mailing Service, CRUD operations, recording logs and testing with JUnit. IMPORTANT: the application does not include Spring Security. 
 
+- app password for gmail included in message for recruiter
+
 ## What does it do?
 This application has the following functionalities:
 - CRUD operations on users email addresses
