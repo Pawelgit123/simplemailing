@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/mail")
@@ -15,7 +17,7 @@ public class UserWithMailController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserWithMailDTO createNewUserWithMail(@RequestBody UserWithMailDTO userWithMailDTO)  {
+    public UserWithMailDTO createNewUserWithMail(@RequestBody UserWithMailDTO userWithMailDTO) throws IOException {
 
         return userWithMailServiceCreate.createNewUserWithMail(userWithMailDTO);
     }
@@ -30,7 +32,7 @@ public class UserWithMailController {
 
     @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserWithMailDTO getUserWithMailById(@PathVariable Long id) {
+    public UserWithMailDTO getUserWithMailById(@PathVariable Long id) throws IOException {
 
         return userWithMailServiceSearch.getUserWithMailById(id);
     }

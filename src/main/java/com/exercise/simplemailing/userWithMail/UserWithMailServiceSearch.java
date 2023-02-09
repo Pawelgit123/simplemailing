@@ -2,10 +2,13 @@ package com.exercise.simplemailing.userWithMail;
 
 import com.exercise.simplemailing.exceptions.NotFoundException;
 import com.exercise.simplemailing.logs.LoggerAll;
+import com.exercise.simplemailing.logs.LoggerRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -17,14 +20,17 @@ import java.util.stream.Collectors;
 public class UserWithMailServiceSearch {
 
     private final LoggerAll logger;
+    private final LoggerRequest loggerRequest;
+    private final BufferedWriter bufferedWriter;
     private final UserWithMailRepository userWithMailRepository;
 
     private final UserWithMailMapper userWithMailMapper;
 
-    public UserWithMailDTO getUserWithMailById(Long id) {
+    public UserWithMailDTO getUserWithMailById(Long id) throws IOException {
 
         Optional<UserWithMail> byId = userWithMailRepository.findById(id);
         logger.makeLog("FOUND userWithMail: "+byId);
+        loggerRequest.createNewLog(bufferedWriter,"FOUND userWithMail: "+byId);
 
         return userWithMailMapper.mapUserWithMailToDTO(byId
                 .orElseThrow(() -> new NotFoundException("Not found UserWithMail with ID: " + id)));
