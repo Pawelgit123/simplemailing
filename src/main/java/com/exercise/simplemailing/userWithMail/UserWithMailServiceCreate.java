@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
 @Service
@@ -26,25 +25,25 @@ public class UserWithMailServiceCreate {
 
     public UserWithMailDTO createNewUserWithMail(UserWithMailDTO userWithMailDTO) throws IOException {
 
-        if(userWithMailDTO==null){
+        if (userWithMailDTO == null) {
             logger.makeLog("CREATE-FAIL: no data to create userWithMail");
 
             throw new InternalServerException("No data to create user with email");
         }
 
-        if(userWithMailDTO.getEmail().isEmpty()){
+        if (userWithMailDTO.getEmail().isEmpty()) {
             logger.makeLog("CREATE-FAIL: email is empty");
             throw new BadRequestException("Email is empty");
         }
-        if(userWithMailDTO.getEmail().isBlank()){
+        if (userWithMailDTO.getEmail().isBlank()) {
             logger.makeLog("CREATE-FAIL: email is blank");
             throw new BadRequestException("Email is blank");
         }
 
         final UserWithMail userWithMail = userWithMailMapper.mapDTOtoUserWithMail(userWithMailDTO);
         UserWithMail save = userWithMailRepository.save(userWithMail);
-        logger.makeLog("CREATED UserWithMail: "+userWithMail.getEmail());
-        loggerRequest.createNewLog(bufferedWriter,"CREATED UserWithMail: "+userWithMail.getEmail());
+        logger.makeLog("CREATED UserWithMail: " + userWithMail.getEmail());
+        loggerRequest.createNewLog(bufferedWriter, "CREATED UserWithMail: " + userWithMail.getEmail());
 
 
         return userWithMailMapper.mapUserWithMailToDTO(save);

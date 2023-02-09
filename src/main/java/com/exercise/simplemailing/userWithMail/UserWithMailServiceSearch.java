@@ -29,29 +29,31 @@ public class UserWithMailServiceSearch {
     public UserWithMailDTO getUserWithMailById(Long id) throws IOException {
 
         Optional<UserWithMail> byId = userWithMailRepository.findById(id);
-        logger.makeLog("FOUND userWithMail: "+byId);
-        loggerRequest.createNewLog(bufferedWriter,"FOUND userWithMail: "+byId);
+        logger.makeLog("FOUND userWithMail: " + byId);
+        loggerRequest.createNewLog(bufferedWriter, "FOUND userWithMail: " + byId);
 
         return userWithMailMapper.mapUserWithMailToDTO(byId
                 .orElseThrow(() -> new NotFoundException("Not found UserWithMail with ID: " + id)));
 
     }
 
-    public UserWithMailDTO getUserWithMailByAddress(String address) {
+    public UserWithMailDTO getUserWithMailByAddress(String address) throws IOException {
 
         Optional<UserWithMail> userWithMailByEmail = userWithMailRepository.findUserWithMailByEmail(address);
-        logger.makeLog("FOUND userWithMail: "+address);
+        logger.makeLog("FOUND userWithMail: " + address);
+        loggerRequest.createNewLog(bufferedWriter, "FOUND userWithMail: " + address);
 
         return userWithMailMapper.mapUserWithMailToDTO(userWithMailByEmail
                 .orElseThrow(() -> new NotFoundException("Not found UserWithMail with address: " + address)));
 
     }
 
-    public UserWithMailDTOListed getAllUserWithMail() {
+    public UserWithMailDTOListed getAllUserWithMail() throws IOException {
 
         List<UserWithMail> all = userWithMailRepository.findAll();
         UserWithMailDTOListed userWithMailDTOListed = new UserWithMailDTOListed();
         logger.makeLog("FOUND userWithMail: all");
+        loggerRequest.createNewLog(bufferedWriter, "FOUND userWithMail: all");
 
         Set<UserWithMailDTO> collect = all.stream().map(userWithMailMapper::mapUserWithMailToDTO).collect(Collectors.toSet());
         userWithMailDTOListed.setUserWithMailDTOSet(collect);

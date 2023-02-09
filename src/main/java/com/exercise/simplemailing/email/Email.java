@@ -1,4 +1,4 @@
-package com.exercise.simplemailing.emailThree;
+package com.exercise.simplemailing.email;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

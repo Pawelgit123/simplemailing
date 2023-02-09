@@ -16,7 +16,6 @@ public class LoggerRequest {
         bufferedWriter.write(now.withNano(0)+ " "+log);
         bufferedWriter.newLine();
         bufferedWriter.flush();
-//        bufferedWriter.close();
     }
 
 }

@@ -1,8 +1,10 @@
-package com.exercise.simplemailing.emailThree;
+package com.exercise.simplemailing.email;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,7 +23,7 @@ public class EmailController {
 
     @PostMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public void sendEmailToAll(@RequestParam String subject, @RequestParam String text){
+    public void sendEmailToAll(@RequestParam String subject, @RequestParam String text) throws IOException {
 
         emailService.sendEmailToAll(subject, text);
 
