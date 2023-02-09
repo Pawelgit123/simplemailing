@@ -1,11 +1,8 @@
 package com.exercise.simplemailing.userWithMail;
 
-import com.exercise.simplemailing.logs.RequestLog;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,9 +15,7 @@ public class UserWithMailController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserWithMailDTO createNewUserWithMail(@RequestBody UserWithMailDTO userWithMailDTO) throws IOException {
-
-//        RequestLog.createNewLog(RequestLog.createRequestFileWriter(),"new UserWithMail created, email address: " + userWithMailDTO.getEmail());
+    public UserWithMailDTO createNewUserWithMail(@RequestBody UserWithMailDTO userWithMailDTO)  {
 
         return userWithMailServiceCreate.createNewUserWithMail(userWithMailDTO);
     }

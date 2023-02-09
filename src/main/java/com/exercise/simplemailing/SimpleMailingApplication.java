@@ -1,6 +1,7 @@
 package com.exercise.simplemailing;
 
 
+import com.exercise.simplemailing.logs.LoggerAll;
 import com.exercise.simplemailing.userWithMail.UserWithMail;
 import com.exercise.simplemailing.userWithMail.UserWithMailRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,6 @@
 package com.exercise.simplemailing.logs;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,7 +8,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Data
-public class GeneralLog {
+public class LoggerRequest {
 
     public static void createNewLog(FileWriter fileWriter, String log) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -21,6 +19,6 @@ public class GeneralLog {
     }
 
     public static FileWriter createRequestFileWriter() throws IOException {
-        return new FileWriter("generalLog.txt");
+        return new FileWriter("requestLog.txt");
     }
 }
