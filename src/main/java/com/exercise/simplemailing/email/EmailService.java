@@ -18,7 +18,7 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
-    private UserWithMailServiceSearch userWithMailServiceSearch;
+    private final UserWithMailServiceSearch userWithMailServiceSearch;
 
 
     public void sendEmail(Email email) {
@@ -33,7 +33,7 @@ public class EmailService {
             javaMailSender.send(mailMessage);
     }
 
-    public void sendEmailToAll(String subject, String text) throws IOException {
+    public void sendEmailToAll(EmailToAll email) throws IOException {
 
         UserWithMailDTOListed allUserWithMail = userWithMailServiceSearch.getAllUserWithMail();
         Set<UserWithMailDTO> userWithMailDTOSet = allUserWithMail.getUserWithMailDTOSet();
@@ -42,8 +42,8 @@ public class EmailService {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom("testerpgtester@gmail.com");
             mailMessage.setTo(user.getEmail());
-            mailMessage.setText(text);
-            mailMessage.setSubject(subject);
+            mailMessage.setText(email.getText());
+            mailMessage.setSubject(email.getTitle());
 
             javaMailSender.send(mailMessage);
         }

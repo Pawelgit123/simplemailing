@@ -23,9 +23,9 @@ public class EmailController {
 
     @PostMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public void sendEmailToAll(@RequestParam String subject, @RequestParam String text) throws IOException {
+    public void sendEmailToAll(@RequestBody EmailToAll email) throws IOException {
 
-        emailService.sendEmailToAll(subject, text);
+        emailService.sendEmailToAll(email);
 
     }
 }
