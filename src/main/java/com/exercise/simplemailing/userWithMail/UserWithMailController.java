@@ -25,7 +25,7 @@ public class UserWithMailController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public UserWithMailDTOListed getAllUserWithMail() {
+    public UserWithMailDTOListed getAllUserWithMail() throws IOException {
 
         return userWithMailServiceSearch.getAllUserWithMail();
     }
@@ -39,21 +39,21 @@ public class UserWithMailController {
 
     @GetMapping("/address/{address}")
     @ResponseStatus(HttpStatus.OK)
-    public UserWithMailDTO getUserWithMailByAddress(@PathVariable String address) {
+    public UserWithMailDTO getUserWithMailByAddress(@PathVariable String address) throws IOException {
 
         return userWithMailServiceSearch.getUserWithMailByAddress(address);
     }
 
     @DeleteMapping("/address/{address}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUserWithMailByAddress(@PathVariable String address) {
+    public void deleteUserWithMailByAddress(@PathVariable String address) throws IOException {
 
         userWithMailServiceRemove.removeUserWithMailByAddress(address);
     }
 
     @DeleteMapping("/id/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUserWithMailById(@PathVariable Long id) {
+    public void deleteUserWithMailById(@PathVariable Long id) throws IOException {
 
         userWithMailServiceRemove.removeUserWithMailById(id);
     }
