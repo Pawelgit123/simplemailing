@@ -1,6 +1,8 @@
 package com.exercise.simplemailing;
 
 
+import com.exercise.simplemailing.logs.LoggerAll;
+import com.exercise.simplemailing.logs.LoggerRequest;
 import com.exercise.simplemailing.userWithMail.UserWithMail;
 import com.exercise.simplemailing.userWithMail.UserWithMailRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @RequiredArgsConstructor

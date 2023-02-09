@@ -1,6 +1,5 @@
 package com.exercise.simplemailing.userWithMail;
 
-import com.exercise.simplemailing.logs.RequestLog;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +19,6 @@ public class UserWithMailController {
     @ResponseStatus(HttpStatus.CREATED)
     public UserWithMailDTO createNewUserWithMail(@RequestBody UserWithMailDTO userWithMailDTO) throws IOException {
 
-//        RequestLog.createNewLog(RequestLog.createRequestFileWriter(),"new UserWithMail created, email address: " + userWithMailDTO.getEmail());
-
         return userWithMailServiceCreate.createNewUserWithMail(userWithMailDTO);
     }
 
@@ -35,7 +32,7 @@ public class UserWithMailController {
 
     @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserWithMailDTO getUserWithMailById(@PathVariable Long id) {
+    public UserWithMailDTO getUserWithMailById(@PathVariable Long id) throws IOException {
 
         return userWithMailServiceSearch.getUserWithMailById(id);
     }
