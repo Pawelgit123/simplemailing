@@ -14,7 +14,7 @@ This application has the following functionalities:
 ## Prerequisites
 This project uses the following technologies:
 - Spring Boot
-- JDK 11
+- JDK 17
 - H2 database
 - Project Lombok
 
