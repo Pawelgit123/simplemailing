@@ -11,10 +11,9 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 
-
 @RequiredArgsConstructor
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class, UserDetailsServiceAutoConfiguration.class, SecurityFilterAutoConfiguration.class})
-public class SimpleMailingApplication implements CommandLineRunner {
+public class SimpleMailingApplication implements CommandLineRunner{
 
     private final UserWithMailRepository userWithMailRepository;
 
@@ -34,4 +33,5 @@ public class SimpleMailingApplication implements CommandLineRunner {
         userWithMailRepository.save(userWithMailTwo);
 
     }
+
 }
